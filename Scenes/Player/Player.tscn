@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://du7my4ggbjj2"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/player.gd" id="1_wu2ko"]
+[ext_resource type="Script" path="res://Scenes/Player/camera_player.gd" id="2_olyc7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ydefs"]
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhlu0"]
+height = 1.2
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_wu2ko")
+
+[node name="Standing_collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ydefs")
+
+[node name="Crouching_collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("CapsuleShape3D_qhlu0")
+disabled = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
+[node name="neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="head" type="Node3D" parent="neck"]
+
+[node name="Camera3D" type="Camera3D" parent="neck/head"]
+script = ExtResource("2_olyc7")
+
+[connection signal="spawn_tower_to_player" from="neck/head/Camera3D" to="." method="_on_camera_3d_spawn_tower_to_player"]

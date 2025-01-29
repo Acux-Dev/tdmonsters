@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6mmr47mty3ce"]
+
+[ext_resource type="Texture2D" uid="uid://ckanarewhkh3v" path="res://Materials/Floor_Textures/texture_07.png" id="1_lyhw4"]
+[ext_resource type="Script" path="res://Scenes/Terrain/game_scene.gd" id="1_xr38a"]
+[ext_resource type="PackedScene" uid="uid://du7my4ggbjj2" path="res://Scenes/Player/Player.tscn" id="2_pc7tu"]
+[ext_resource type="PackedScene" uid="uid://bqrowwsxgxik3" path="res://Scenes/Towers/SimpleTower/simple_tower.tscn" id="4_tempu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp7fv"]
+albedo_texture = ExtResource("1_lyhw4")
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_thmk7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_78b45"]
+sky_material = SubResource("ProceduralSkyMaterial_thmk7")
+
+[sub_resource type="Environment" id="Environment_6l800"]
+background_mode = 2
+sky = SubResource("Sky_78b45")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_dh756"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -4, 0, 0, 0, 0, 0, 0, 2, 0, -6, 0, 0, 0, 0, 0, 0, 2, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="world" type="Node3D"]
+script = ExtResource("1_xr38a")
+
+[node name="stage" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_hp7fv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage"]
+transform = Transform3D(0.975207, -0.221293, 0, 0.221293, 0.975207, 0, 0, 0, 1, -9.58376, 1.28991, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_hp7fv")
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_6l800")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_pc7tu")]
+
+[node name="TowerContainer" type="Node3D" parent="."]
+
+[node name="EnemyPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+curve = SubResource("Curve3D_dh756")
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+
+[node name="simple_tower" parent="." instance=ExtResource("4_tempu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05378, 0, -2.99872)
+
+[connection signal="spawn_tower" from="Player" to="." method="_on_player_spawn_tower"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
