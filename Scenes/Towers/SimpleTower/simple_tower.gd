@@ -8,7 +8,7 @@ var can_shoot = false
 
 func _process(delta):
 	if is_instance_valid(current_target):
-		look_at(current_target.global_position)
+		look_at(Vector3(current_target.global_position.x, self.global_position.y , current_target.global_position.z))
 		if can_shoot:
 			shoot()
 			can_shoot = false
