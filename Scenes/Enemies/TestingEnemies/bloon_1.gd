@@ -12,3 +12,8 @@ func _physics_process(delta):
 		Path.queue_free()
 	
 	move_and_slide()
+
+func take_damage(bullet_damage):
+	health -= bullet_damage
+	if health <= 0:
+		queue_free()
