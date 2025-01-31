@@ -7,7 +7,7 @@ var bullet_damage
 func _physics_process(delta):
 	if is_instance_valid(target):
 		velocity = global_position.direction_to(target.global_position)*speed
-		look_at(target.global_position)
+		look_at(Vector3(target.global_position.x, target.global_position.y, target.global_position.z))
 		
 		move_and_slide()
 	else:
