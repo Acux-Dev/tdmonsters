@@ -1,10 +1,10 @@
 extends StaticBody3D
 
-var bullet = preload("res://Scenes/Assets/Bullet/bullet.gd")
+var bullet = preload("res://Scenes/Assets/Bullet/bullet.tscn")
 var bullet_damage = 5
 var current_targets = []
 var current_target
-var can_shoot = false
+var can_shoot = true
 
 func _process(delta):
 	if is_instance_valid(current_target):
@@ -20,9 +20,9 @@ func _process(delta):
 func shoot():
 	var temp_bullet = bullet.instantiate()
 	temp_bullet.target = current_target
-	temp_bullet.damage = bullet_damage
+	temp_bullet.bullet_damage = bullet_damage
 	get_node("BulletContainer").add_child(temp_bullet)
-	temp_bullet.global_position = $BulletContainer.global_position
+	temp_bullet.global_position = $AimingPoint.global_position
 
 func choose_target(_current_targets):
 	var temp_array = _current_targets

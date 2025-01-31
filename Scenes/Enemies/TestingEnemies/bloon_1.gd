@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var speed = 2
-@export var health = 10
+@export var health = 100
 
 @onready var Path : PathFollow3D = get_parent()
 
@@ -12,3 +12,8 @@ func _physics_process(delta):
 		Path.queue_free()
 	
 	move_and_slide()
+
+func take_damage(bullet_damage):
+	health -= bullet_damage
+	if health <= 0:
+		queue_free()

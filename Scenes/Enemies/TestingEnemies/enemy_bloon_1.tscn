@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceabpw0hakhua"]
+[gd_scene load_steps=6 format=3 uid="uid://ceabpw0hakhua"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/TestingEnemies/bloon_1.gd" id="1_uw4s1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8b0l"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njtoo"]
+next_pass = SubResource("StandardMaterial3D_o8b0l")
 albedo_color = Color(0.434157, 0.626403, 0.790555, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rq6vt"]
@@ -11,7 +19,7 @@ material = SubResource("StandardMaterial3D_njtoo")
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0rpj"]
 
 [node name="Enemy" type="PathFollow3D"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.25, 0)
 
 [node name="Bloon_1" type="CharacterBody3D" parent="." groups=["Enemy"]]
 script = ExtResource("1_uw4s1")
