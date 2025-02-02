@@ -10,6 +10,8 @@ height = 1.8
 height = 1.2
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_wu2ko")
 
 [node name="Standing_collision_shape" type="CollisionShape3D" parent="."]
