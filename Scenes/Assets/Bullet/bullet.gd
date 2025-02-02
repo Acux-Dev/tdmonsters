@@ -1,8 +1,11 @@
 extends CharacterBody3D
 
 var target
-var speed = 5
+var speed = 20
 var bullet_damage
+
+func _ready():
+	look_at(Vector3(target.global_position.x, target.global_position.y, target.global_position.z))
 
 func _physics_process(delta):
 	if is_instance_valid(target):

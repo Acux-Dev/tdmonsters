@@ -17,7 +17,7 @@ size = Vector3(2, 1, 1)
 size = Vector3(2.4, 1.2, 1.2)
 
 [node name="Bullet" type="CharacterBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 script = ExtResource("1_2galu")
 
 [node name="BulletMesh" type="CSGMesh3D" parent="."]
