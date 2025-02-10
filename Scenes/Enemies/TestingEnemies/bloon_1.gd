@@ -5,6 +5,9 @@ extends CharacterBody3D
 
 @onready var Path : PathFollow3D = get_parent()
 
+func _enter_tree():
+	$EnemyInfo.max_health = health
+
 func _physics_process(delta):
 	Path.set_progress(Path.get_progress() + speed * delta)
 	
@@ -15,5 +18,6 @@ func _physics_process(delta):
 
 func take_damage(bullet_damage):
 	health -= bullet_damage
+	$EnemyInfo.take_damage(bullet_damage)
 	if health <= 0:
 		queue_free()
