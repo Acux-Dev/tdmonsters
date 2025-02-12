@@ -22,7 +22,6 @@ func shoot():
 	var temp_bullet = bullet.instantiate()
 	temp_bullet.target = current_target
 	temp_bullet.bullet_damage = bullet_damage
-	temp_bullet.transform.basis = $TowerBody/RotationPoint/temp_front_look/AimingPoint.global_transform.basis
 	get_node("BulletContainer").add_child(temp_bullet)
 	temp_bullet.global_position = $TowerBody/RotationPoint/temp_front_look/AimingPoint.global_position
 
