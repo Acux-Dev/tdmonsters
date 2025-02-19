@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://du7my4ggbjj2"]
+[gd_scene load_steps=7 format=3 uid="uid://du7my4ggbjj2"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/player.gd" id="1_wu2ko"]
 [ext_resource type="Script" path="res://Scenes/Player/camera_player.gd" id="2_olyc7"]
@@ -6,7 +6,12 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ydefs"]
 height = 1.8
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2ursq"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhlu0"]
+height = 1.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qwpmq"]
 height = 1.2
 
 [node name="Player" type="CharacterBody3D"]
@@ -18,10 +23,16 @@ script = ExtResource("1_wu2ko")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ydefs")
 
+[node name="Standing_mesh" type="MeshInstance3D" parent="Standing_collision_shape"]
+mesh = SubResource("CapsuleMesh_2ursq")
+
 [node name="Crouching_collision_shape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("CapsuleShape3D_qhlu0")
 disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Crouching_collision_shape"]
+mesh = SubResource("CapsuleMesh_qwpmq")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
