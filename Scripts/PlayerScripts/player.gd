@@ -35,7 +35,7 @@ var direction = Vector3.ZERO
 
 func _ready():
 	# Make mouse not visible
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	GameManager.mouseCapture()
 
 func _input(event):
 	# Handler of camera movement with mouse
