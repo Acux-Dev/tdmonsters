@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ceabpw0hakhua"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/TestingEnemies/bloon_1.gd" id="1_uw4s1"]
+[ext_resource type="Script" uid="uid://bi5edh4hmjhlt" path="res://Scenes/Enemies/TestingEnemies/bloon_1.gd" id="1_uw4s1"]
 [ext_resource type="PackedScene" uid="uid://di86rq2tpirx4" path="res://Scenes/Assets/EnemyInfo/enemy_info.tscn" id="2_4k7x6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8b0l"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqrowwsxgxik3"]
 
-[ext_resource type="Script" path="res://Scenes/Towers/SimpleTower/simple_tower.gd" id="1_keues"]
+[ext_resource type="Script" uid="uid://crx00sd01lieu" path="res://Scenes/Towers/SimpleTower/simple_tower.gd" id="1_keues"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_q6sts"]
 lightmap_size_hint = Vector2i(14, 10)

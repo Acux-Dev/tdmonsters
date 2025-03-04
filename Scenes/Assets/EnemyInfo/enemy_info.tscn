@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://di86rq2tpirx4"]
 
-[ext_resource type="Script" path="res://Scenes/Assets/EnemyInfo/enemy_info.gd" id="1_inqfa"]
+[ext_resource type="Script" uid="uid://cqqrfv1ar0nfk" path="res://Scenes/Assets/EnemyInfo/enemy_info.gd" id="1_inqfa"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mpbrm"]
 viewport_path = NodePath("SubViewport")

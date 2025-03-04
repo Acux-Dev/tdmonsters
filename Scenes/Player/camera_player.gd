@@ -22,11 +22,10 @@ func _input(event):
 			if camera_distance > 0:
 				translate(lerp(Vector3(), Vector3(0,0,-2), 0.2))
 				camera_distance -= 2
-	
-	if camera_distance == 0:
-		GameManager.mouseCapture()
-	else:
-		GameManager.mouseVisible()
+		if camera_distance == 0:
+			GameManager.mouseCapture()
+		else:
+			GameManager.mouseVisible()
 
 func shoot_ray():
 	var mouse_pos = get_viewport().get_mouse_position()

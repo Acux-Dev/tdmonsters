@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://du7my4ggbjj2"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerScripts/player.gd" id="1_wu2ko"]
-[ext_resource type="Script" path="res://Scenes/Player/camera_player.gd" id="2_olyc7"]
+[ext_resource type="Script" uid="uid://bv474laptri3g" path="res://Scripts/PlayerScripts/player.gd" id="1_wu2ko"]
+[ext_resource type="Script" uid="uid://84mbq78fmixe" path="res://Scenes/Player/camera_player.gd" id="2_olyc7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ydefs"]
 height = 1.8
