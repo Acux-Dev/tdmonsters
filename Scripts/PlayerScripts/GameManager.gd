@@ -1,5 +1,6 @@
 extends Node
 
+var mouse_captured := false
 
 func _ready():
 	pass
@@ -20,6 +21,8 @@ func _process(delta):
 
 func mouseCapture():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	mouse_captured = true
 
 func mouseVisible():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	mouse_captured = false
