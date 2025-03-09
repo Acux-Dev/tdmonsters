@@ -20,6 +20,7 @@ func _process(delta):
 
 func shoot():
 	var temp_bullet = bullet.instantiate()
+	temp_bullet.rotation = Vector3($TowerBody/RotationPoint.rotation.x, rotation.y, 0)
 	temp_bullet.target = current_target
 	temp_bullet.bullet_damage = bullet_damage
 	get_node("BulletContainer").add_child(temp_bullet)

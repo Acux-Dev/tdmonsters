@@ -28,6 +28,7 @@ mesh = SubResource("CapsuleMesh_2ursq")
 
 [node name="Crouching_collision_shape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_qhlu0")
 disabled = true
 
