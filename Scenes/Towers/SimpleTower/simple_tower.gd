@@ -8,7 +8,8 @@ var can_shoot = true
 
 func _process(delta):
 	if is_instance_valid(current_target):
-		look_at(Vector3(current_target.global_position.x, self.global_position.y , current_target.global_position.z))
+		# TODO: evitar que $TowerBody rote
+		$TowerBody.look_at(Vector3(current_target.global_position.x, self.global_position.y , current_target.global_position.z))
 		$TowerBody/RotationPoint.look_at(Vector3(current_target.global_position.x, current_target.global_position.y , current_target.global_position.z))
 		if can_shoot:
 			shoot()
@@ -20,7 +21,7 @@ func _process(delta):
 
 func shoot():
 	var temp_bullet = bullet.instantiate()
-	temp_bullet.rotation = Vector3($TowerBody/RotationPoint.rotation.x, rotation.y, 0)
+	temp_bullet.rotation = Vector3($TowerBody/RotationPoint.rotation.x, $TowerBody.rotation.y, 0)
 	temp_bullet.target = current_target
 	temp_bullet.bullet_damage = bullet_damage
 	get_node("BulletContainer").add_child(temp_bullet)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqrowwsxgxik3"]
+[gd_scene load_steps=11 format=3 uid="uid://bqrowwsxgxik3"]
 
 [ext_resource type="Script" uid="uid://crx00sd01lieu" path="res://Scenes/Towers/SimpleTower/simple_tower.gd" id="1_keues"]
+[ext_resource type="Shader" uid="uid://ccd5uf8tjaeis" path="res://Scenes/Towers/SimpleTower/tower_area.gdshader" id="2_5ute4"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_q6sts"]
 lightmap_size_hint = Vector2i(14, 10)
@@ -12,14 +13,38 @@ height = 0.5
 size = Vector3(0.2, 0.2, 0.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_f3wea"]
+height = 0.3
+radius = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3b7yq"]
 height = 0.1
 radius = 0.3
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xpff4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ute4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_17og5"]
+lightmap_size_hint = Vector2i(27, 27)
+material = SubResource("StandardMaterial3D_5ute4")
+size = Vector2(5, 5)
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ute4"]
+render_priority = 0
+shader = ExtResource("2_5ute4")
+shader_parameter/color_inside = Color(1, 1, 1, 1)
+shader_parameter/color_border = Color(1, 1, 1, 1)
+shader_parameter/alpha_inside = 0.03
+shader_parameter/alpha_outside = 0.0
+shader_parameter/diameter = 1.0
+shader_parameter/thickness = 0.01
+shader_parameter/frequency = 40.0
+shader_parameter/rotation_speed = 20.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5ute4"]
+height = 10.0
 radius = 2.5
 
 [node name="simple_tower" type="StaticBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_keues")
 
 [node name="TowerBody" type="MeshInstance3D" parent="."]
@@ -36,13 +61,42 @@ skeleton = NodePath("../..")
 [node name="AimingPoint" type="Marker3D" parent="TowerBody/RotationPoint/temp_front_look"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 
-[node name="TowerArea" type="CollisionShape3D" parent="."]
+[node name="TowerCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_f3wea")
 
-[node name="TowerRange" type="Area3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="TowerCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.15, 0)
+target_position = Vector3(0, -0.05, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TowerRange"]
-shape = SubResource("SphereShape3D_xpff4")
+[node name="RayCast3D2" type="RayCast3D" parent="TowerCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.15, 0)
+target_position = Vector3(0, -0.05, 0)
+
+[node name="RayCast3D3" type="RayCast3D" parent="TowerCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0.3)
+target_position = Vector3(0, -0.05, 0)
+
+[node name="RayCast3D4" type="RayCast3D" parent="TowerCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -0.3)
+target_position = Vector3(0, -0.05, 0)
+
+[node name="TowerArea" type="Area3D" parent="."]
+visible = false
+
+[node name="TowerAreaCollision" type="CollisionShape3D" parent="TowerArea"]
+shape = SubResource("CylinderShape3D_3b7yq")
+
+[node name="TowerRangeCircle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+mesh = SubResource("QuadMesh_17og5")
+surface_material_override/0 = SubResource("ShaderMaterial_5ute4")
+
+[node name="TowerRange" type="Area3D" parent="."]
+visible = false
+
+[node name="RangeShape" type="CollisionShape3D" parent="TowerRange"]
+shape = SubResource("CylinderShape3D_5ute4")
 
 [node name="BulletContainer" type="Node" parent="."]
 
