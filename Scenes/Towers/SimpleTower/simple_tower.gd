@@ -1,3 +1,4 @@
+@tool
 extends StaticBody3D
 
 var bullet = preload("res://Scenes/Assets/Bullet/bullet.tscn")
@@ -19,12 +20,13 @@ func _process(delta):
 			get_node("BulletContainer").get_child(i).queue_free()
 
 func shoot():
-	var temp_bullet = bullet.instantiate()
-	temp_bullet.rotation = Vector3($Tower/TowerBody/RotationPoint.rotation.x, $Tower/TowerBody.rotation.y, 0)
-	temp_bullet.target = current_target
-	temp_bullet.bullet_damage = bullet_damage
-	get_node("BulletContainer").add_child(temp_bullet)
-	temp_bullet.global_position = $Tower/TowerBody/RotationPoint/temp_front_look/AimingPoint.global_position
+	current_target.take_damage(bullet_damage)
+	#var temp_bullet = bullet.instantiate()
+	#temp_bullet.rotation = Vector3($Tower/TowerBody/RotationPoint.rotation.x, $Tower/TowerBody.rotation.y, 0)
+	#temp_bullet.target = current_target
+	#temp_bullet.bullet_damage = bullet_damage
+	#get_node("BulletContainer").add_child(temp_bullet)
+	#temp_bullet.global_position = $Tower/TowerBody/RotationPoint/temp_front_look/AimingPoint.global_position
 
 func choose_target(_current_targets):
 	var temp_array = _current_targets
