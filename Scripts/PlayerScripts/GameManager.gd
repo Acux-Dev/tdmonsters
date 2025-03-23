@@ -1,6 +1,7 @@
 extends Node
 
 var mouse_captured := false
+var building_mode := false
 
 func _ready():
 	pass
