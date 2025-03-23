@@ -70,7 +70,7 @@ curve = SubResource("Curve3D_dh756")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="EnemyPath"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-polygon = PackedVector2Array(0, 0, 0.0220504, 0.094678, 0.521743, 0.0841184, 0.535185, 0.00596911)
+polygon = PackedVector2Array(-0.25, 0, -0.25, 0.1, 0.25, 0.1, 0.25, 0.006)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
