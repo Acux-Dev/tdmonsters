@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/PlayerScripts/GameManager.gd"
+Server="*res://Scenes/Singletons/Server.gd"
 
 [dotnet]
 
