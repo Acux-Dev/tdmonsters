@@ -53,3 +53,14 @@ func _on_tower_range_body_exited(body):
 
 func _on_shooting_cooldown_timeout():
 	can_shoot = true
+
+
+func _on_tower_area_mouse_entered():
+	# makes visible the ranges of area of collision and range
+	$TowerArea/TowerRangeCircle.visible = true
+	$TowerRange/TowerRangeCircle.visible = true
+
+func _on_tower_area_mouse_exited():
+	# makes invisible the ranges of area of collision and range
+	$TowerArea/TowerRangeCircle.visible = false
+	$TowerRange/TowerRangeCircle.visible = false
