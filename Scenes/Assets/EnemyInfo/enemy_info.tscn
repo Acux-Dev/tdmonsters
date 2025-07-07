@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://di86rq2tpirx4"]
+
+[ext_resource type="Script" uid="uid://cqqrfv1ar0nfk" path="res://Scenes/Assets/EnemyInfo/enemy_info.gd" id="1_inqfa"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mpbrm"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70ent"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv00t"]
+bg_color = Color(0, 0, 0.101961, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1khv"]
+bg_color = Color(0, 0.807292, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="EnemyInfo" type="Sprite3D"]
+billboard = 1
+fixed_size = true
+texture = SubResource("ViewportTexture_mpbrm")
+script = ExtResource("1_inqfa")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(60, 40)
+
+[node name="Panel" type="Panel" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_70ent")
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_top = 0.5
+anchor_right = 0.955
+anchor_bottom = 0.5
+offset_left = 0.0999994
+offset_top = -2.0
+offset_right = -0.100006
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_styles/background = SubResource("StyleBoxFlat_uv00t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l1khv")
+value = 100.0
+rounded = true
+show_percentage = false

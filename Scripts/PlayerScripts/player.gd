@@ -26,6 +26,9 @@ var sliding = false
 
 # mouse sensitivity
 const mouse_sens = 0.15
+# mouse position
+var mouse_pos
+var move_camera := false
 
 # Lerp (smoothing movement)
 var lerp_speed = 10.0
@@ -35,22 +38,36 @@ var direction = Vector3.ZERO
 
 func _ready():
 	# Make mouse not visible
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	GameManager.mouseCapture()
 
 func _input(event):
 	# Handler of camera movement with mouse
 	if event is InputEventMouseMotion:
-		if free_looking:
-			neck.rotate_y(deg_to_rad(-event.relative.x) * mouse_sens)
-		else:
-			rotate_y(deg_to_rad(-event.relative.x) * mouse_sens)
-		head.rotate_x(deg_to_rad(-event.relative.y) * mouse_sens)
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		if move_camera:
+			if free_looking:
+				neck.rotate_y(deg_to_rad(-event.relative.x) * mouse_sens)
+			else:
+				rotate_y(deg_to_rad(-event.relative.x) * mouse_sens)
+			head.rotate_x(deg_to_rad(-event.relative.y) * mouse_sens)
+			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			print("right click")
+			move_camera = true
+			mouse_pos = event.position
+			GameManager.mouseCapture()
+			print(mouse_pos)
+		elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_released():
+			move_camera = false
+			GameManager.mouseVisible()
+			Input.warp_mouse(mouse_pos)
+			
 
 func _physics_process(delta):
 	
 	# Close game (remove later)
-	if Input.is_action_pressed("esc"):
+	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
 	
 	# Movement logic

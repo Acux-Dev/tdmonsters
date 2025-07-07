@@ -13,10 +13,13 @@ func _process(delta):
 	game_manager()
 
 func _on_player_spawn_tower(tower, raycast):
-	if !raycast.is_empty():
-		var instance = tower.instantiate()
-		instance.position = raycast["position"]
-		tower_container.add_child(instance)
+	if GameManager.building_mode == true:
+		if !raycast.is_empty():
+			var instance = tower.instantiate()
+			instance.position = raycast["position"]
+			tower_container.add_child(instance)
+	else:
+		pass
 
 func game_manager():
 	if enemies_to_spawn > 0 and can_spawn:
