@@ -25,7 +25,10 @@ func _input(event):
 		if camera_distance == 0:
 			GameManager.mouseCapture()
 		else:
-			GameManager.mouseVisible()
+			if !GameManager.mouse_captured:
+				GameManager.mouseVisible()
+			else:
+				GameManager.mouseCapture()
 
 func shoot_ray():
 	var mouse_pos = get_viewport().get_mouse_position()
