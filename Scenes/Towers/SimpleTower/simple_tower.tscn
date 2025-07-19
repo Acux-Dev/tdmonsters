@@ -120,6 +120,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_17og5")
 
 [node name="TowerRange" type="Area3D" parent="."]
+input_ray_pickable = false
 
 [node name="RangeShape" type="CollisionShape3D" parent="TowerRange"]
 shape = SubResource("CylinderShape3D_5ute4")

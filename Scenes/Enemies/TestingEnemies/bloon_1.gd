@@ -44,3 +44,11 @@ func _on_static_body_3d_input_event(camera, event, event_position, normal, shape
 				mesh.material_overlay = selection_material
 			else:
 				mesh.material_overlay = outline_material
+
+
+func _on_area_3d_mouse_entered():
+	$EnemyInfo.visible = true
+
+
+func _on_area_3d_mouse_exited():
+	$EnemyInfo.visible = false
