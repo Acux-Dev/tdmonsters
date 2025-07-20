@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var speed = 2
-@export var health = 100
+@export var health = 1000
 
 @export var mesh : MeshInstance3D
 @export var outline_material : Material

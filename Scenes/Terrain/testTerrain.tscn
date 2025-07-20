@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6mmr47mty3ce"]
+[gd_scene load_steps=13 format=3 uid="uid://c6mmr47mty3ce"]
 
 [ext_resource type="Texture2D" uid="uid://ckanarewhkh3v" path="res://Materials/Floor_Textures/texture_07.png" id="1_lyhw4"]
 [ext_resource type="Script" uid="uid://c23f31dgo20ye" path="res://Scenes/Terrain/game_scene.gd" id="1_xr38a"]
 [ext_resource type="PackedScene" uid="uid://du7my4ggbjj2" path="res://Scenes/Player/Player.tscn" id="2_pc7tu"]
 [ext_resource type="PackedScene" uid="uid://bqrowwsxgxik3" path="res://Scenes/Towers/SimpleTower/simple_tower.tscn" id="4_tempu"]
+[ext_resource type="PackedScene" uid="uid://cgl0mr63t0i44" path="res://Scenes/Assets/Base/Base.tscn" id="5_niw0r"]
+[ext_resource type="PackedScene" uid="uid://nms46oxx35u" path="res://Scenes/Assets/HealthBar/HealthBar.tscn" id="6_kormt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp7fv"]
 albedo_texture = ExtResource("1_lyhw4")
@@ -40,8 +42,8 @@ script = ExtResource("1_xr38a")
 [node name="CSGBox3D" type="CSGBox3D" parent="stage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
-collision_layer = 3
-collision_mask = 3
+collision_layer = 32771
+collision_mask = 32771
 size = Vector3(50, 1, 50)
 material = SubResource("StandardMaterial3D_hp7fv")
 
@@ -101,6 +103,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05378, 0, -2.99872)
 
 [node name="simple_tower2" parent="." instance=ExtResource("4_tempu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.054, 0.5, -17.999)
+
+[node name="Base" parent="." instance=ExtResource("5_niw0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95597, 0, 0.0344542)
+
+[node name="HealthBar" parent="." instance=ExtResource("6_kormt")]
+anchors_preset = 10
+grow_horizontal = 2
 
 [connection signal="spawn_tower" from="Player" to="." method="_on_player_spawn_tower"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

@@ -16,7 +16,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Scripts/PlayerScripts/GameManager.gd"
+GameManager="*res://Scripts/Autoload/GameManager.gd"
+SignalBus="*res://Scripts/Autoload/SignalBus.gd"
 Server="*res://Scenes/Singletons/Server.gd"
 
 [dotnet]
@@ -34,6 +35,10 @@ folder_colors={
 "res://Scenes/": "red",
 "res://Scripts/": "green"
 }
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 

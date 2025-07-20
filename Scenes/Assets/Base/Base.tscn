@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgl0mr63t0i44"]
+
+[ext_resource type="Script" uid="uid://3a7x6abv5cuo" path="res://Scenes/Assets/Base/base.gd" id="1_o6dw3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3e8bh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3e8bh"]
+transparency = 1
+albedo_color = Color(0.960938, 0.120117, 0.120117, 0.223529)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o6dw3"]
+material = SubResource("StandardMaterial3D_3e8bh")
+
+[node name="Base" type="Area3D"]
+script = ExtResource("1_o6dw3")
+
+[node name="BaseCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_3e8bh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_o6dw3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
