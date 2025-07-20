@@ -31,10 +31,9 @@ func _input(event):
 				GameManager.mouseCapture()
 
 func shoot_ray():
-	var mouse_pos = get_viewport().get_mouse_position()
 	var ray_lenght = 1000
-	var from = project_ray_origin(mouse_pos)
-	var to = from + project_ray_normal(mouse_pos) * ray_lenght
+	var from = project_ray_origin(GameManager.mouse_pos)
+	var to = from + project_ray_normal(GameManager.mouse_pos) * ray_lenght
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.new()
 	ray_query.from = from

@@ -2,9 +2,11 @@ extends Node
 
 var mouse_captured := false
 var building_mode := false
+# mouse position
+var mouse_pos
 
 func _ready():
-	pass
+	mouse_pos = get_viewport().get_mouse_position()
 
 func _input(event):
 	if OS.is_debug_build():

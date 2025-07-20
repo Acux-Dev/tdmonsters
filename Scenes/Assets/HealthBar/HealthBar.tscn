@@ -32,6 +32,7 @@ anti_aliasing = false
 
 [node name="HealthBar" type="Control"]
 layout_mode = 3
+anchors_preset = 10
 anchor_right = 1.0
 script = ExtResource("1_6kq5b")
 

@@ -91,6 +91,8 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 
 [node name="TowerArea" type="Area3D" parent="."]
+collision_layer = 32768
+collision_mask = 32768
 
 [node name="TowerAreaCollision" type="CollisionShape3D" parent="TowerArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -120,6 +122,8 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_17og5")
 
 [node name="TowerRange" type="Area3D" parent="."]
+collision_layer = 32768
+collision_mask = 32768
 input_ray_pickable = false
 
 [node name="RangeShape" type="CollisionShape3D" parent="TowerRange"]

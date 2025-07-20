@@ -26,8 +26,6 @@ var sliding = false
 
 # mouse sensitivity
 const mouse_sens = 0.15
-# mouse position
-var mouse_pos
 var move_camera := false
 
 # Lerp (smoothing movement)
@@ -55,13 +53,13 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			print("right click")
 			move_camera = true
-			mouse_pos = event.position
+			GameManager.mouse_pos = event.position
 			GameManager.mouseCapture()
-			print(mouse_pos)
+			print(GameManager.mouse_pos)
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.is_released():
 			move_camera = false
 			GameManager.mouseVisible()
-			Input.warp_mouse(mouse_pos)
+			Input.warp_mouse(GameManager.mouse_pos)
 			
 
 func _physics_process(delta):
