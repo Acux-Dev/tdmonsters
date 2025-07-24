@@ -10,7 +10,7 @@ var can_shoot = true
 func _process(delta):
 	if is_instance_valid(current_target):
 		$Tower.look_at(Vector3(current_target.global_position.x, 0, current_target.global_position.z))
-		$Tower/TowerBody/RotationPoint.look_at(Vector3(current_target.global_position.x, current_target.global_position.y , current_target.global_position.z))
+		$Tower/RotationPoint/Skeleton3D/Cube.look_at(Vector3(current_target.global_position.x, current_target.global_position.y, current_target.global_position.z))
 		if can_shoot:
 			shoot()
 			can_shoot = false

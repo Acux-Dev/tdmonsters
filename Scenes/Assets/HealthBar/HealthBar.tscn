@@ -34,6 +34,7 @@ anti_aliasing = false
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
+grow_horizontal = 2
 script = ExtResource("1_6kq5b")
 
 [node name="Title" type="Label" parent="."]

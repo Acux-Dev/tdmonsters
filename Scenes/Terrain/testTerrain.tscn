@@ -99,7 +99,7 @@ path_joined = false
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 
 [node name="simple_tower" parent="." instance=ExtResource("4_tempu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05378, 0, -2.99872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.054, 0, -3)
 
 [node name="simple_tower2" parent="." instance=ExtResource("4_tempu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.054, 0.5, -17.999)
@@ -108,7 +108,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.054, 0.5, -17.999)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95597, 0, 0.0344542)
 
 [node name="HealthBar" parent="." instance=ExtResource("6_kormt")]
-grow_horizontal = 2
 
 [connection signal="spawn_tower" from="Player" to="." method="_on_player_spawn_tower"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
