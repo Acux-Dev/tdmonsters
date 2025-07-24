@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceabpw0hakhua"]
+[gd_scene load_steps=8 format=3 uid="uid://ceabpw0hakhua"]
 
 [ext_resource type="Script" uid="uid://bi5edh4hmjhlt" path="res://Scenes/Enemies/TestingEnemies/bloon_1.gd" id="1_uw4s1"]
 [ext_resource type="PackedScene" uid="uid://di86rq2tpirx4" path="res://Scenes/Assets/EnemyInfo/enemy_info.tscn" id="2_4k7x6"]
@@ -17,11 +17,9 @@ albedo_color = Color(0.434157, 0.626403, 0.790555, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rq6vt"]
 material = SubResource("StandardMaterial3D_njtoo")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ld2j"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0rpj"]
 radius = 0.7
 height = 2.4
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0rpj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_78bv6"]
 viewport_path = NodePath("SubViewport")
@@ -40,11 +38,6 @@ script = ExtResource("1_uw4s1")
 mesh = SubResource("CapsuleMesh_rq6vt")
 skeleton = NodePath("../..")
 
-[node name="Area3D" type="Area3D" parent="Bloon_1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bloon_1/Area3D"]
-shape = SubResource("CapsuleShape3D_1ld2j")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bloon_1"]
 shape = SubResource("CapsuleShape3D_v0rpj")
 
@@ -53,5 +46,5 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 visible = false
 texture = SubResource("ViewportTexture_78bv6")
 
-[connection signal="mouse_entered" from="Bloon_1/Area3D" to="Bloon_1" method="_on_area_3d_mouse_entered"]
-[connection signal="mouse_exited" from="Bloon_1/Area3D" to="Bloon_1" method="_on_area_3d_mouse_exited"]
+[connection signal="mouse_entered" from="Bloon_1" to="Bloon_1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Bloon_1" to="Bloon_1" method="_on_mouse_exited"]
