@@ -2,20 +2,24 @@ extends CharacterBody3D
 
 signal spawn_tower
 
-@onready var neck = $neck
-@onready var head = $neck/head
-@onready var standing_collision_shape = $Standing_collision_shape
-@onready var crouching_collision_shape = $Crouching_collision_shape
-@onready var ray_cast_3d = $RayCast3D
+@export_group("Player nodes")
+@export var neck : Node3D
+@export var head : Node3D
+@export var standing_collision_shape : CollisionShape3D
+@export var crouching_collision_shape : CollisionShape3D
+@export var ray_cast_3d : RayCast3D
+@export var animation_player : AnimationPlayer
+@export var animation_tree : AnimationTree
 
+@export_group("Player stats")
 # Speeds
-var current_speed = 5.0
+@export var current_speed = 5.0
 
-const walking_speed = 5.0
-const sprinting_speed = 8.0
-const crouching_speed = 3.0
+@export var walking_speed = 5.0
+@export var sprinting_speed = 8.0
+@export var crouching_speed = 3.0
 
-const jump_velocity = 4.5
+@export var jump_velocity = 4.5
 
 # States
 var walking = false
@@ -23,14 +27,32 @@ var sprinting = false
 var crouching = false
 var free_looking = false
 var sliding = false
+var moving = false
 
 # mouse sensitivity
 const mouse_sens = 0.15
 var move_camera := false
 
+@export_group("Config")
 # Lerp (smoothing movement)
-var lerp_speed = 10.0
-var crouching_depth = -0.5
+@export var lerp_speed = 10.0
+@export var crouching_depth = -0.5
+
+enum {BASE, WALK, CROUCH, CROUCHWALK}
+
+var current_animation = BASE
+var blend_values := {
+	BASE: 0.0,
+	WALK: 0.0,
+	CROUCH: 0.0,
+	CROUCHWALK: 0.0,
+}
+var blend_paths := {
+	BASE: null,
+	WALK: "parameters/WalkBlend/blend_amount",
+	CROUCH: "parameters/CrouchBlend/blend_amount",
+	CROUCHWALK: "parameters/CrouchWalkBlend/blend_amount",
+}
 
 var direction = Vector3.ZERO
 
@@ -77,17 +99,18 @@ func _physics_process(delta):
 		walking = false
 		sprinting = false
 		crouching = true
-	elif !ray_cast_3d.is_colliding(): 
-		head.position.y = lerp(head.position.y, 0.0, delta * lerp_speed)
-		crouching_collision_shape.disabled = true
-		standing_collision_shape.disabled = false
-		if Input.is_action_pressed("sprint"):
-			current_speed = sprinting_speed
-			walking = false
-			sprinting = true
-			crouching = false
-		else:
-			current_speed = walking_speed
+	else:
+		crouching = false
+		if !ray_cast_3d.is_colliding(): 
+			head.position.y = lerp(head.position.y, 0.0, delta * lerp_speed)
+			crouching_collision_shape.disabled = true
+			standing_collision_shape.disabled = false
+			if Input.is_action_pressed("sprint"):
+				current_speed = sprinting_speed
+				sprinting = true
+				walking = false
+			else:
+				current_speed = walking_speed
 	
 	# Handle free looking
 	if Input.is_action_pressed("free_look"):
@@ -114,8 +137,33 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("forward") or Input.is_action_pressed("backward"):
+		moving = true
+	else:
+		moving = false
+
+	check_animation()
+	animation_change(delta)
+	update_animation_tree()
+
 	move_and_slide()
 
 
 func _on_camera_3d_spawn_tower_to_player(tower, raycast):
 	spawn_tower.emit(tower, raycast)
+
+func check_animation():
+	if not crouching:
+		current_animation = WALK if moving else BASE
+	else:
+		current_animation = CROUCHWALK if moving else CROUCH
+
+func animation_change(delta):
+	for anim in blend_values.keys():
+		var target = 1.0 if anim == current_animation else 0.0
+		blend_values[anim] = lerpf(blend_values[anim], target, lerp_speed * delta)
+
+func update_animation_tree():
+	for anim in blend_paths.keys():
+		if blend_paths[anim] != null:
+			animation_tree[blend_paths[anim]] = blend_values[anim]
