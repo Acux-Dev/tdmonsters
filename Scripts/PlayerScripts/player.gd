@@ -38,21 +38,9 @@ var move_camera := false
 @export var lerp_speed = 10.0
 @export var crouching_depth = -0.5
 
+# valores para la animacion
 enum {BASE, WALK, CROUCH, CROUCHWALK}
-
 var current_animation = BASE
-var blend_values := {
-	BASE: 0.0,
-	WALK: 0.0,
-	CROUCH: 0.0,
-	CROUCHWALK: 0.0,
-}
-var blend_paths := {
-	BASE: null,
-	WALK: "parameters/WalkBlend/blend_amount",
-	CROUCH: "parameters/CrouchBlend/blend_amount",
-	CROUCHWALK: "parameters/CrouchWalkBlend/blend_amount",
-}
 
 var direction = Vector3.ZERO
 
@@ -143,8 +131,7 @@ func _physics_process(delta):
 		moving = false
 
 	check_animation()
-	animation_change(delta)
-	update_animation_tree()
+	animation_change()
 
 	move_and_slide()
 
@@ -158,12 +145,13 @@ func check_animation():
 	else:
 		current_animation = CROUCHWALK if moving else CROUCH
 
-func animation_change(delta):
-	for anim in blend_values.keys():
-		var target = 1.0 if anim == current_animation else 0.0
-		blend_values[anim] = lerpf(blend_values[anim], target, lerp_speed * delta)
-
-func update_animation_tree():
-	for anim in blend_paths.keys():
-		if blend_paths[anim] != null:
-			animation_tree[blend_paths[anim]] = blend_values[anim]
+func animation_change():
+	match current_animation:
+		BASE:
+			animation_tree.set("parameters/Transition/transition_request", "Base")
+		WALK:
+			animation_tree.set("parameters/Transition/transition_request", "Walk")
+		CROUCH:
+			animation_tree.set("parameters/Transition/transition_request", "Crouch")
+		CROUCHWALK:
+			animation_tree.set("parameters/Transition/transition_request", "Crouch_walk")

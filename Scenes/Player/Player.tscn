@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://du7my4ggbjj2"]
+[gd_scene load_steps=47 format=4 uid="uid://du7my4ggbjj2"]
 
 [ext_resource type="Script" uid="uid://bv474laptri3g" path="res://Scripts/PlayerScripts/player.gd" id="1_wu2ko"]
 [ext_resource type="Script" uid="uid://84mbq78fmixe" path="res://Scenes/Player/camera_player.gd" id="2_olyc7"]
@@ -803,36 +803,45 @@ animation = &"Base"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h54ih"]
 animation = &"Crouch"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ude3g"]
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_h54ih"]
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jmcll"]
 animation = &"Crouch_walk"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_ft8w5"]
+xfade_time = 0.1
+input_0/name = "Base"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Crouch"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Walk"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "Crouch_walk"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ude3g"]
 animation = &"Walk"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ft8w5"]
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ft8w5"]
-graph_offset = Vector2(-629.2238, -46.405396)
+graph_offset = Vector2(-479.25037, -31.574257)
 nodes/output/position = Vector2(320, 40)
 nodes/Base/node = SubResource("AnimationNodeAnimation_ft8w5")
-nodes/Base/position = Vector2(-460, 40)
+nodes/Base/position = Vector2(-100, 40)
 nodes/Crouch/node = SubResource("AnimationNodeAnimation_h54ih")
-nodes/Crouch/position = Vector2(-460, 220)
+nodes/Crouch/position = Vector2(-100, 220)
 nodes/Walk/node = SubResource("AnimationNodeAnimation_ude3g")
-nodes/Walk/position = Vector2(-280, 300)
+nodes/Walk/position = Vector2(-100, 400)
 nodes/Crouch_walk/node = SubResource("AnimationNodeAnimation_jmcll")
-nodes/Crouch_walk/position = Vector2(-80, 300)
-nodes/CrouchBlend/node = SubResource("AnimationNodeBlend2_ude3g")
-nodes/CrouchBlend/position = Vector2(-280, 40)
-nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_ft8w5")
-nodes/WalkBlend/position = Vector2(-80, 40)
-nodes/CrouchWalkBlend/node = SubResource("AnimationNodeBlend2_h54ih")
-nodes/CrouchWalkBlend/position = Vector2(120, 40)
-node_connections = [&"output", 0, &"CrouchWalkBlend", &"CrouchBlend", 0, &"Base", &"CrouchBlend", 1, &"Crouch", &"WalkBlend", 0, &"CrouchBlend", &"WalkBlend", 1, &"Walk", &"CrouchWalkBlend", 0, &"WalkBlend", &"CrouchWalkBlend", 1, &"Crouch_walk"]
+nodes/Crouch_walk/position = Vector2(-100, 580)
+nodes/Transition/node = SubResource("AnimationNodeTransition_ft8w5")
+nodes/Transition/position = Vector2(100, 40)
+node_connections = [&"output", 0, &"Transition", &"Transition", 0, &"Base", &"Transition", 1, &"Crouch", &"Transition", 2, &"Walk", &"Transition", 3, &"Crouch_walk"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("neck", "head", "standing_collision_shape", "crouching_collision_shape", "ray_cast_3d", "animation_player", "animation_tree")]
 script = ExtResource("1_wu2ko")
@@ -1040,9 +1049,9 @@ autoplay = "Base"
 [node name="AnimationTree" type="AnimationTree" parent="Player2"]
 tree_root = SubResource("AnimationNodeBlendTree_ft8w5")
 anim_player = NodePath("../AnimationPlayer")
-parameters/CrouchBlend/blend_amount = 0.0
-parameters/WalkBlend/blend_amount = 0.0
-parameters/CrouchWalkBlend/blend_amount = 0.0
+parameters/Transition/current_state = "Base"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
