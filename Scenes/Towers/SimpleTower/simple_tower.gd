@@ -20,7 +20,8 @@ func _process(delta):
 			get_node("BulletContainer").get_child(i).queue_free()
 
 func shoot():
-	current_target.take_damage(bullet_damage)
+	if current_target.has_method("take_damage"):
+		current_target.take_damage(bullet_damage)
 	#var temp_bullet = bullet.instantiate()
 	#temp_bullet.rotation = Vector3($Tower/TowerBody/RotationPoint.rotation.x, $Tower/TowerBody.rotation.y, 0)
 	#temp_bullet.target = current_target

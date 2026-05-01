@@ -1,7 +1,9 @@
 extends Node3D
 
-@onready var tower_container = $TowerContainer
 @onready var Enemy = preload("res://Scenes/Enemies/TestingEnemies/enemy_bloon_1.tscn")
+@export var tower_container: Node3D
+@export var enemy_spawn_timer: Timer
+@export var enemy_path: Path3D
 
 var enemies_to_spawn = 3
 var can_spawn = true
@@ -23,10 +25,10 @@ func _on_player_spawn_tower(tower, raycast):
 
 func game_manager():
 	if enemies_to_spawn > 0 and can_spawn:
-		$EnemySpawnTimer.start()
+		enemy_spawn_timer.start()
 		
 		var newEnemy = Enemy.instantiate()
-		$EnemyPath.add_child(newEnemy)
+		enemy_path.add_child(newEnemy)
 		enemies_to_spawn -= 1
 		can_spawn = false
 

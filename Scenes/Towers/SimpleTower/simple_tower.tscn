@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqrowwsxgxik3"]
+[gd_scene format=3 uid="uid://bqrowwsxgxik3"]
 
 [ext_resource type="Script" uid="uid://crx00sd01lieu" path="res://Scenes/Towers/SimpleTower/simple_tower.gd" id="1_keues"]
 [ext_resource type="Shader" uid="uid://ccd5uf8tjaeis" path="res://Scenes/Towers/SimpleTower/tower_area.gdshader" id="2_5ute4"]
@@ -62,70 +62,70 @@ shader_parameter/blur = 0.0
 shader_parameter/darken_factor = 0.5
 shader_parameter/patron_inside = false
 
-[node name="simple_tower" type="StaticBody3D"]
+[node name="simple_tower" type="StaticBody3D" unique_id=2147099403]
 script = ExtResource("1_keues")
 
-[node name="Tower" parent="." instance=ExtResource("2_17og5")]
+[node name="Tower" parent="." unique_id=1825021864 instance=ExtResource("2_17og5")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="RotationPoint" parent="Tower" index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.25, 0)
 
 [node name="Cube" parent="Tower/RotationPoint/Skeleton3D" index="0"]
-transform = Transform3D(0.1, 0, 0, 0, -5.41737e-09, -0.4, 0, 0.1, -2.16695e-08, 0, 0.4, 0.00804996)
+transform = Transform3D(0.1, 0, 0, 0, -5.4173674e-09, -0.4, 0, 0.1, -2.166947e-08, 0, 0.40000004, 0.008049959)
 
-[node name="AimingPoint" type="Marker3D" parent="Tower/RotationPoint/Skeleton3D/Cube/Cube" index="0"]
+[node name="AimingPoint" type="Marker3D" parent="Tower/RotationPoint/Skeleton3D/Cube/Cube" index="0" unique_id=1015169005]
 transform = Transform3D(10, 0, 0, 0, 10, 1.04623e-07, 0, -2.61557e-08, 2.5, 0, 0, -1)
 
-[node name="TowerArea" type="Area3D" parent="."]
+[node name="TowerArea" type="Area3D" parent="." unique_id=248326661]
 collision_layer = 32768
 collision_mask = 32768
 
-[node name="TowerAreaCollision" type="CollisionShape3D" parent="TowerArea"]
+[node name="TowerAreaCollision" type="CollisionShape3D" parent="TowerArea" unique_id=519258865]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_3b7yq")
 
-[node name="RayCast3D" type="RayCast3D" parent="TowerArea/TowerAreaCollision"]
+[node name="RayCast3D" type="RayCast3D" parent="TowerArea/TowerAreaCollision" unique_id=1473195430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.134721, 0)
 target_position = Vector3(0, -0.05, 0)
 
-[node name="RayCast3D2" type="RayCast3D" parent="TowerArea/TowerAreaCollision"]
+[node name="RayCast3D2" type="RayCast3D" parent="TowerArea/TowerAreaCollision" unique_id=540424507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.134721, 0)
 target_position = Vector3(0, -0.05, 0)
 
-[node name="RayCast3D3" type="RayCast3D" parent="TowerArea/TowerAreaCollision"]
+[node name="RayCast3D3" type="RayCast3D" parent="TowerArea/TowerAreaCollision" unique_id=550131365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.134721, 0.3)
 target_position = Vector3(0, -0.05, 0)
 
-[node name="RayCast3D4" type="RayCast3D" parent="TowerArea/TowerAreaCollision"]
+[node name="RayCast3D4" type="RayCast3D" parent="TowerArea/TowerAreaCollision" unique_id=111253203]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.134721, -0.3)
 target_position = Vector3(0, -0.05, 0)
 
-[node name="TowerRangeCircle" type="MeshInstance3D" parent="TowerArea"]
+[node name="TowerRangeCircle" type="MeshInstance3D" parent="TowerArea" unique_id=1593881267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
 visible = false
 mesh = SubResource("QuadMesh_5ute4")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_17og5")
 
-[node name="TowerRange" type="Area3D" parent="."]
+[node name="TowerRange" type="Area3D" parent="." unique_id=68026456]
 collision_layer = 32768
 collision_mask = 32768
 input_ray_pickable = false
 
-[node name="RangeShape" type="CollisionShape3D" parent="TowerRange"]
+[node name="RangeShape" type="CollisionShape3D" parent="TowerRange" unique_id=1372552097]
 shape = SubResource("CylinderShape3D_5ute4")
 
-[node name="TowerRangeCircle" type="MeshInstance3D" parent="TowerRange"]
+[node name="TowerRangeCircle" type="MeshInstance3D" parent="TowerRange" unique_id=657315303]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 visible = false
 mesh = SubResource("QuadMesh_17og5")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_5ute4")
 
-[node name="BulletContainer" type="Node" parent="."]
+[node name="BulletContainer" type="Node" parent="." unique_id=664778458]
 
-[node name="ShootingCooldown" type="Timer" parent="."]
+[node name="ShootingCooldown" type="Timer" parent="." unique_id=1671921224]
 wait_time = 0.1
 
 [connection signal="mouse_entered" from="TowerArea" to="." method="_on_tower_area_mouse_entered"]

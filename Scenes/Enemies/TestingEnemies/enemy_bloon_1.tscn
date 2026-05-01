@@ -1,7 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceabpw0hakhua"]
+[gd_scene format=3 uid="uid://ceabpw0hakhua"]
 
 [ext_resource type="Script" uid="uid://bi5edh4hmjhlt" path="res://Scenes/Enemies/TestingEnemies/bloon_1.gd" id="1_uw4s1"]
 [ext_resource type="PackedScene" uid="uid://di86rq2tpirx4" path="res://Scenes/Assets/EnemyInfo/enemy_info.tscn" id="2_4k7x6"]
+[ext_resource type="Script" uid="uid://buo7563m8g8ju" path="res://Scripts/Resources/enemy_path_base.gd" id="2_wxpec"]
+
+[sub_resource type="Resource" id="Resource_wxpec"]
+resource_local_to_scene = true
+script = ExtResource("2_wxpec")
+health = 100
+speed = 2
+target_type = Array[int]([0])
+metadata/_custom_type_script = "uid://buo7563m8g8ju"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8b0l"]
 cull_mode = 1
@@ -21,30 +30,31 @@ material = SubResource("StandardMaterial3D_njtoo")
 radius = 0.7
 height = 2.4
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_78bv6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ld2j"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Enemy" type="PathFollow3D"]
+[node name="Enemy" type="PathFollow3D" unique_id=1378972275]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.25, 0)
 v_offset = 0.4
 loop = false
 
-[node name="Bloon_1" type="CharacterBody3D" parent="." groups=["Enemy"]]
+[node name="Bloon_1" type="CharacterBody3D" parent="." unique_id=998677804 groups=["Enemy"]]
 collision_layer = 32768
 collision_mask = 32768
 script = ExtResource("1_uw4s1")
+enemy_stats = SubResource("Resource_wxpec")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bloon_1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bloon_1" unique_id=1929934888]
 mesh = SubResource("CapsuleMesh_rq6vt")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bloon_1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bloon_1" unique_id=892037107]
 shape = SubResource("CapsuleShape3D_v0rpj")
 
-[node name="EnemyInfo" parent="Bloon_1" instance=ExtResource("2_4k7x6")]
+[node name="EnemyInfo" parent="Bloon_1" unique_id=174291697 instance=ExtResource("2_4k7x6")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 visible = false
-texture = SubResource("ViewportTexture_78bv6")
+texture = SubResource("ViewportTexture_1ld2j")
 
 [connection signal="mouse_entered" from="Bloon_1" to="Bloon_1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Bloon_1" to="Bloon_1" method="_on_mouse_exited"]

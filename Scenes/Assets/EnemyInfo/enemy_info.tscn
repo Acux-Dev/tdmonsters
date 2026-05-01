@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://di86rq2tpirx4"]
+[gd_scene format=3 uid="uid://di86rq2tpirx4"]
 
 [ext_resource type="Script" uid="uid://cqqrfv1ar0nfk" path="res://Scenes/Assets/EnemyInfo/enemy_info.gd" id="1_inqfa"]
 
@@ -37,17 +37,17 @@ expand_margin_left = 1.0
 expand_margin_top = 1.0
 expand_margin_bottom = 1.0
 
-[node name="EnemyInfo" type="Sprite3D"]
+[node name="EnemyInfo" type="Sprite3D" unique_id=812982802]
 billboard = 1
 fixed_size = true
 texture = SubResource("ViewportTexture_mpbrm")
 script = ExtResource("1_inqfa")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1121323457]
 transparent_bg = true
 size = Vector2i(60, 40)
 
-[node name="Panel" type="Panel" parent="SubViewport"]
+[node name="Panel" type="Panel" parent="SubViewport" unique_id=144792642]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -57,7 +57,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_70ent")
 
-[node name="ProgressBar" type="ProgressBar" parent="SubViewport/Panel"]
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport/Panel" unique_id=1335928594]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.045

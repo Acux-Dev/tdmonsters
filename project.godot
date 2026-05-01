@@ -8,10 +8,14 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="TDMonsters"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -19,6 +23,7 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/Autoload/GameManager.gd"
 SignalBus="*res://Scripts/Autoload/SignalBus.gd"
 Server="*res://Scenes/Singletons/Server.gd"
+Items="*res://Util/Items/items.gd"
 
 [dotnet]
 
@@ -123,4 +128,4 @@ right_click={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.3019608, 0.3019608, 0.3019608, 1)

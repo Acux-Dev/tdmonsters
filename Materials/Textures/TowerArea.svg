@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="105.83334mm"
+   height="105.83334mm"
+   viewBox="0 0 105.83334 105.83334"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="TowerArea.png"
+   inkscape:export-xdpi="24.190475"
+   inkscape:export-ydpi="24.190475"
+   sodipodi:docname="TowerArea.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:lockguides="false"
+     inkscape:zoom="1.4265879"
+     inkscape:cx="130.03054"
+     inkscape:cy="176.29478"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1358"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="25.026022,108.77759"
+       orientation="0,-1"
+       id="guide1"
+       inkscape:locked="false" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="105.83334"
+       height="105.83334"
+       id="page1"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#666666;stroke-width:0.182098"
+       id="path2"
+       cx="-9.4214869"
+       cy="74.240028"
+       transform="rotate(-52.232501)"
+       r="52.916668" />
+    <ellipse
+       style="fill:#999999;stroke-width:0.172993"
+       id="circle1"
+       cx="-9.4214869"
+       cy="74.240028"
+       transform="rotate(-52.232502)"
+       rx="50.27084"
+       ry="50.270836" />
+  </g>
+</svg>
