@@ -7,8 +7,3 @@ enum testStates {
 	WALKING, 
 	FALLING
 }
-
-enum target_types {
-	GROUND,
-	FLYING
-}

@@ -6,12 +6,14 @@ extends CharacterBody3D
 @export var outline_material : Material
 @export var selection_material : Material
 
+@export var enemy_info: Sprite3D
+
 var selected := false
 
 @onready var Path : PathFollow3D = get_parent()
 
 func _enter_tree():
-	$EnemyInfo.max_health = enemy_stats.health
+	enemy_info.max_health = enemy_stats.health
 
 func _physics_process(delta):
 	Path.set_progress(Path.get_progress() + enemy_stats.speed * delta)
@@ -23,7 +25,7 @@ func _physics_process(delta):
 
 func take_damage(bullet_damage):
 	enemy_stats.health -= bullet_damage
-	$EnemyInfo.take_damage(bullet_damage)
+	enemy_info.take_damage(bullet_damage)
 	if enemy_stats.health <= 0:
 		queue_free()
 
@@ -46,8 +48,8 @@ func _on_static_body_3d_input_event(camera, event, event_position, normal, shape
 
 
 func _on_mouse_entered():
-	$EnemyInfo.visible = true
+	enemy_info.visible = true
 
 
 func _on_mouse_exited():
-	$EnemyInfo.visible = false
+	enemy_info.visible = false

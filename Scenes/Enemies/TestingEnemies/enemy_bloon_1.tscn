@@ -38,11 +38,12 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.25, 0)
 v_offset = 0.4
 loop = false
 
-[node name="Bloon_1" type="CharacterBody3D" parent="." unique_id=998677804 groups=["Enemy"]]
-collision_layer = 32768
-collision_mask = 32768
+[node name="Bloon_1" type="CharacterBody3D" parent="." unique_id=998677804 node_paths=PackedStringArray("enemy_info") groups=["Enemy"]]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_uw4s1")
 enemy_stats = SubResource("Resource_wxpec")
+enemy_info = NodePath("EnemyInfo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bloon_1" unique_id=1929934888]
 mesh = SubResource("CapsuleMesh_rq6vt")
