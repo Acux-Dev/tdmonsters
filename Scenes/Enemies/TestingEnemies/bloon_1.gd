@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var selection_material : Material
 
 @export var enemy_info: Sprite3D
+@export var mesh_position : Node3D
 
 var selected := false
 
@@ -53,3 +54,6 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	enemy_info.visible = false
+
+func target_position():
+	return mesh_position.global_position

@@ -844,6 +844,7 @@ nodes/Transition/position = Vector2(100, 40)
 node_connections = [&"output", 0, &"Transition", &"Transition", 0, &"Base", &"Transition", 1, &"Crouch", &"Transition", 2, &"Walk", &"Transition", 3, &"Crouch_walk"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1495408140 node_paths=PackedStringArray("neck", "head", "standing_collision_shape", "crouching_collision_shape", "ray_cast_3d", "animation_player", "animation_tree")]
+input_ray_pickable = false
 script = ExtResource("1_wu2ko")
 neck = NodePath("neck")
 head = NodePath("neck/head")

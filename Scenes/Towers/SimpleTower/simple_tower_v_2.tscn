@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bqrowwsxgxik3"]
+[gd_scene format=3 uid="uid://er5bqrsaa775"]
 
-[ext_resource type="Script" uid="uid://crx00sd01lieu" path="res://Scenes/Towers/SimpleTower/simple_tower.gd" id="1_keues"]
-[ext_resource type="PackedScene" uid="uid://bjpuuhmu15s5q" path="res://Scenes/Towers/SimpleTower/simple_tower_v_2_mesh.tscn" id="2_4m40s"]
-[ext_resource type="Shader" uid="uid://ccd5uf8tjaeis" path="res://Scenes/Towers/SimpleTower/tower_area.gdshader" id="2_5ute4"]
+[ext_resource type="Script" uid="uid://crx00sd01lieu" path="res://Scenes/Towers/SimpleTower/simple_tower.gd" id="1_neefq"]
+[ext_resource type="PackedScene" uid="uid://bmapcm6sxrb1j" path="res://Scenes/Towers/SimpleTower/simple_tower_mesh.tscn" id="2_neefq"]
+[ext_resource type="Shader" uid="uid://ccd5uf8tjaeis" path="res://Scenes/Towers/SimpleTower/tower_area.gdshader" id="3_d781e"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3b7yq"]
 height = 0.3
@@ -18,7 +18,7 @@ orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_17og5"]
 render_priority = 0
-shader = ExtResource("2_5ute4")
+shader = ExtResource("3_d781e")
 shader_parameter/color_inside = Color(0.503906, 0.124008, 0.124008, 1)
 shader_parameter/color_border = Color(0.855469, 0.203842, 0.203842, 1)
 shader_parameter/alpha_inside = 0.5
@@ -46,7 +46,7 @@ orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ute4"]
 render_priority = 0
-shader = ExtResource("2_5ute4")
+shader = ExtResource("3_d781e")
 shader_parameter/color_inside = Color(1, 1, 1, 1)
 shader_parameter/color_border = Color(1, 1, 1, 1)
 shader_parameter/alpha_inside = 0.05
@@ -62,11 +62,10 @@ shader_parameter/blur = 0.0
 shader_parameter/darken_factor = 0.5
 shader_parameter/patron_inside = false
 
-[node name="simple_tower" type="StaticBody3D" unique_id=2147099403 node_paths=PackedStringArray("tower_meshes")]
-script = ExtResource("1_keues")
-tower_meshes = [NodePath("simple_tower_v2_mesh")]
+[node name="simple_tower_v2" type="StaticBody3D" unique_id=2147099403]
+script = ExtResource("1_neefq")
 
-[node name="simple_tower_v2_mesh" parent="." unique_id=1654213817 instance=ExtResource("2_4m40s")]
+[node name="simple_tower_mesh" parent="." unique_id=858191746 instance=ExtResource("2_neefq")]
 
 [node name="TowerArea" type="Area3D" parent="." unique_id=248326661]
 collision_layer = 4

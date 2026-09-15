@@ -7,10 +7,18 @@ var current_targets = []
 var current_target
 var can_shoot = true
 
+@export var tower_meshes : Array[Node3D]
+
 func _process(delta):
 	if is_instance_valid(current_target):
-		$Tower.look_at(Vector3(current_target.global_position.x, 0, current_target.global_position.z))
-		$Tower/RotationPoint/Skeleton3D/Cube.look_at(Vector3(current_target.global_position.x, current_target.global_position.y, current_target.global_position.z))
+		var target_location_vector3d = Vector3(current_target.global_position.x, current_target.global_position.y, current_target.global_position.z)
+		if current_target.has_method("target_position"):
+				target_location_vector3d = current_target.target_position()
+		for i in tower_meshes:
+			if i.has_method("loot_at_target"):
+				i.loot_at_target(target_location_vector3d)
+		#$Tower.look_at(Vector3(current_target.global_position.x, 0, current_target.global_position.z))
+		#$Tower/RotationPoint/Skeleton3D/Bone/Cube.look_at(Vector3(current_target.global_position.x, current_target.global_position.y, current_target.global_position.z))
 		if can_shoot:
 			shoot()
 			can_shoot = false
@@ -57,11 +65,9 @@ func _on_shooting_cooldown_timeout():
 
 
 func _on_tower_area_mouse_entered():
-	# makes visible the ranges of area of collision and range
 	$TowerArea/TowerRangeCircle.visible = true
 	$TowerRange/TowerRangeCircle.visible = true
 
 func _on_tower_area_mouse_exited():
-	# makes invisible the ranges of area of collision and range
 	$TowerArea/TowerRangeCircle.visible = false
 	$TowerRange/TowerRangeCircle.visible = false

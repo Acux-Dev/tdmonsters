@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpy0pq6rd1ul5"
-path="res://.godot/imported/player.glb-bb64c042f09b5042735f04aac5c567bb.scn"
+uid="uid://bkx6f2ue5seo5"
+path="res://.godot/imported/Basic_Turret_v2.glb-01e44ff8a18d532a426a6bdefdb8ac72.scn"
 
 [deps]
 
-source_file="res://Scenes/Player/player.glb"
-dest_files=["res://.godot/imported/player.glb-bb64c042f09b5042735f04aac5c567bb.scn"]
+source_file="res://Scenes/Assets/Tests/Basic_Turret_v2.glb"
+dest_files=["res://.godot/imported/Basic_Turret_v2.glb-01e44ff8a18d532a426a6bdefdb8ac72.scn"]
 
 [params]
 
@@ -19,7 +19,7 @@ nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
-nodes/root_scale=0.3
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
@@ -40,6 +40,6 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1
-gltf/texture_map_mode=0
+gltf/texture_map_mode=1
