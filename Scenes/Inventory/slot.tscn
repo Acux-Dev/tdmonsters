@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bu2jrw8uho4er"]
+
+[ext_resource type="Script" uid="uid://vu5ix0dlnkqh" path="res://Scenes/Inventory/slot.gd" id="1_yxolh"]
+
+[node name="Slot" type="Panel" unique_id=825221601 node_paths=PackedStringArray("icon", "label")]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("1_yxolh")
+icon = NodePath("Icon")
+label = NodePath("Label")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1936554502]
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="." unique_id=55652507]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
