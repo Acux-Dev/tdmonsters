@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ep3cpwyc0rd4"]
+[gd_scene format=3 uid="uid://ep3cpwyc0rd4"]
 
 [ext_resource type="Script" uid="uid://c6gihfs6uv60c" path="res://Scenes/Menu/menu.gd" id="1_cqskg"]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=1277220008]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cqskg")
 
-[node name="MainOptions" type="HBoxContainer" parent="."]
+[node name="MainOptions" type="HBoxContainer" parent="." unique_id=569760816]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,15 +27,15 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="SingleplayerButton" type="Button" parent="MainOptions"]
+[node name="SingleplayerButton" type="Button" parent="MainOptions" unique_id=1088983616]
 layout_mode = 2
 text = "Singleplayer"
 
-[node name="MultiplayerButton" type="Button" parent="MainOptions"]
+[node name="MultiplayerButton" type="Button" parent="MainOptions" unique_id=309532602]
 layout_mode = 2
 text = "Multiplayer"
 
-[node name="MultiplayerOptions" type="VBoxContainer" parent="."]
+[node name="MultiplayerOptions" type="VBoxContainer" parent="." unique_id=1720404131]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -51,36 +51,36 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="LoginOptions" type="HBoxContainer" parent="MultiplayerOptions"]
+[node name="LoginOptions" type="HBoxContainer" parent="MultiplayerOptions" unique_id=1192390569]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Username" type="LineEdit" parent="MultiplayerOptions/LoginOptions"]
+[node name="Username" type="LineEdit" parent="MultiplayerOptions/LoginOptions" unique_id=1165052517]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Username"
 
-[node name="Password" type="LineEdit" parent="MultiplayerOptions/LoginOptions"]
+[node name="Password" type="LineEdit" parent="MultiplayerOptions/LoginOptions" unique_id=1836724378]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Password"
 secret = true
 
-[node name="ButtonsOptions" type="HBoxContainer" parent="MultiplayerOptions"]
+[node name="ButtonsOptions" type="HBoxContainer" parent="MultiplayerOptions" unique_id=386100269]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Login" type="Button" parent="MultiplayerOptions/ButtonsOptions"]
+[node name="Login" type="Button" parent="MultiplayerOptions/ButtonsOptions" unique_id=832266449]
 layout_mode = 2
 text = "Login"
 
-[node name="Back" type="Button" parent="MultiplayerOptions/ButtonsOptions"]
+[node name="Back" type="Button" parent="MultiplayerOptions/ButtonsOptions" unique_id=2074742799]
 layout_mode = 2
 text = "Back"
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1324633122]
 use_threads = true
 
 [connection signal="pressed" from="MainOptions/SingleplayerButton" to="." method="_on_singleplayer_button_pressed"]

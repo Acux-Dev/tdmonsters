@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/Autoload/GameManager.gd"
 SignalBus="*res://Scripts/Autoload/SignalBus.gd"
 Server="*res://Scenes/Singletons/Server.gd"
+Inventory="*uid://e03uggwbvjox"
 
 [dotnet]
 

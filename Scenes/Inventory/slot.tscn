@@ -2,20 +2,92 @@
 
 [ext_resource type="Script" uid="uid://vu5ix0dlnkqh" path="res://Scenes/Inventory/slot.gd" id="1_yxolh"]
 
-[node name="Slot" type="Panel" unique_id=825221601 node_paths=PackedStringArray("icon", "label")]
-custom_minimum_size = Vector2(20, 20)
-offset_right = 20.0
-offset_bottom = 20.0
+[sub_resource type="Animation" id="Animation_yxolh"]
+resource_name = "Hover"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_vnhqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnhqj"]
+_data = {
+&"Hover": SubResource("Animation_yxolh"),
+&"RESET": SubResource("Animation_vnhqj")
+}
+
+[node name="Slot" type="Button" unique_id=55461003 node_paths=PackedStringArray("icon_texture", "label", "animation_player")]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 30.0
+offset_bottom = 30.0
+offset_transform_enabled = true
 script = ExtResource("1_yxolh")
-icon = NodePath("Icon")
+icon_texture = NodePath("Icon")
 label = NodePath("Label")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1936554502]
 custom_minimum_size = Vector2(20, 20)
 custom_maximum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 20.0
-offset_bottom = 20.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="." unique_id=55652507]
@@ -30,3 +102,9 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 4
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1027427874]
+libraries/ = SubResource("AnimationLibrary_vnhqj")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,4 +1,4 @@
-extends Panel
+extends Button
 
 enum SlotType {
 	SHOP,
@@ -7,19 +7,24 @@ enum SlotType {
 
 @export var slot_type: SlotType = SlotType.SHOP
 
-@export var icon: TextureRect
+@export var icon_texture: TextureRect
 @export var label: Label
+@export var animation_player: AnimationPlayer
 
 @export var item: Item = null:
 	set(value):
 		item = value
 		
 		if value == null:
-			icon.texture = null
+			icon_texture.texture = null
 			label.text = ""
 			return
 		
-		icon.texture = value.icon
+		icon_texture.texture = value.icon
+		
+		if value.details:
+			if value.details.size() > 0 and value.details[0] !=  null:
+				label.text = value.details[0].label
 
 
 var was_dropped := false
@@ -55,6 +60,11 @@ func _drop_data(_at_position, data):
 	
 	if data.source_type == SlotType.HOTBAR:
 		source_slot.item = previous_item
+	
+	if get_parent().has_method("update"):
+		get_parent().update()
+	if data.source_slot.get_parent().has_method("update"):
+		data.source_slot.get_parent().update()
 
 
 func _get_drag_data(_at_position):
@@ -89,3 +99,11 @@ func _notification(what):
 	if what == NOTIFICATION_DRAG_END:
 		if not was_dropped and slot_type == SlotType.HOTBAR:
 			item = null
+
+
+func _on_mouse_entered() -> void:
+	animation_player.play("Hover")
+
+
+func _on_mouse_exited() -> void:
+	animation_player.play_backwards("Hover")
