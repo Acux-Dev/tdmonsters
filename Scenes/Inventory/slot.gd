@@ -9,7 +9,6 @@ enum SlotType {
 
 @export var icon_texture: TextureRect
 @export var label: Label
-@export var animation_player: AnimationPlayer
 
 @export var item: Item = null:
 	set(value):
@@ -58,6 +57,9 @@ func _drop_data(_at_position, data):
 	
 	item = data.item
 	
+	if data.source_type == SlotType.SHOP:
+		_remove_item_from_hotbar(data.item)
+	
 	if data.source_type == SlotType.HOTBAR:
 		source_slot.item = previous_item
 	
@@ -101,9 +103,39 @@ func _notification(what):
 			item = null
 
 
+func _remove_item_from_hotbar(item_to_remove: Item):
+	var parent = get_parent()
+	
+	for child in parent.get_children():
+		if child == self:
+			continue
+		
+		if child is Button and child.slot_type == SlotType.HOTBAR:
+			if child.item == item_to_remove:
+				child.item = null
+				
+				if child.get_parent().has_method("update"):
+					child.get_parent().update()
+				
+				break
+
+
+func _update_slots(source_slot):
+	if get_parent().has_method("update"):
+		get_parent().update()
+	
+	if source_slot.get_parent().has_method("update"):
+		source_slot.get_parent().update()
+
+
 func _on_mouse_entered() -> void:
-	animation_player.play("Hover")
+	z_index += 1
+	var tween = create_tween()
+	tween.tween_property(self, "offset_transform_scale", Vector2(1.2, 1.2), 0.2)
 
 
 func _on_mouse_exited() -> void:
-	animation_player.play_backwards("Hover")
+	var tween = create_tween()
+	tween.tween_property(self, "offset_transform_scale", Vector2(1, 1), 0.2)
+	await tween.finished
+	z_index -= 1

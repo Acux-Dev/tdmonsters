@@ -28,6 +28,7 @@ func game_manager():
 		enemy_spawn_timer.start()
 		
 		var newEnemy = Enemy.instantiate()
+		newEnemy.h_offset = randf_range(-0.2, 0.2)
 		enemy_path.add_child(newEnemy)
 		enemies_to_spawn -= 1
 		can_spawn = false
