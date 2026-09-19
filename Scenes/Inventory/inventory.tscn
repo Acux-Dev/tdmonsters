@@ -3,19 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bu2jrw8uho4er" path="res://Scenes/Inventory/slot.tscn" id="1_lfv3a"]
 [ext_resource type="Theme" uid="uid://b8cn8au0nl1ar" path="res://Scenes/Inventory/inventory_theme.tres" id="1_nffyk"]
 [ext_resource type="Script" uid="uid://e03uggwbvjox" path="res://Scenes/Inventory/inventory.gd" id="1_s8uyb"]
-[ext_resource type="Script" uid="uid://bgw8urdwx5sqw" path="res://Scripts/Classes/Items/ItemDetail.gd" id="2_0dubb"]
-[ext_resource type="Texture2D" uid="uid://bqvdf3iaamn1c" path="res://Scenes/Assets/Tests/basic_turret_logo.png" id="3_evvmy"]
+[ext_resource type="Resource" uid="uid://f5ee7cnrkbj5" path="res://Scenes/Towers/SimpleTower/basic_turret.tres" id="4_levpl"]
 [ext_resource type="Script" uid="uid://cbymlsmsapqxi" path="res://Scripts/Classes/Items/Item.gd" id="4_s8uyb"]
 [ext_resource type="Script" uid="uid://dny7f1gbphy85" path="res://Scenes/Inventory/hotbar.gd" id="5_evvmy"]
 
-[sub_resource type="Resource" id="Resource_nffyk"]
-resource_local_to_scene = true
-script = ExtResource("4_s8uyb")
-title = "Basic Turret"
-icon = ExtResource("3_evvmy")
-metadata/_custom_type_script = "uid://cbymlsmsapqxi"
-
-[node name="Inventory" type="Control" unique_id=444827643 node_paths=PackedStringArray("grid_container", "hotbar")]
+[node name="Inventory" type="Control" unique_id=444827643 node_paths=PackedStringArray("grid_container", "hotbar", "towers_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +18,8 @@ theme = ExtResource("1_nffyk")
 script = ExtResource("1_s8uyb")
 grid_container = NodePath("UI/Theme/GridContainer")
 hotbar = NodePath("UI/Theme/Hotbar")
+available_items = Array[ExtResource("4_s8uyb")]([ExtResource("4_levpl"), ExtResource("4_levpl")])
+towers_container = NodePath("UI/Theme/GridContainer")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=80064071]
 
@@ -53,43 +47,6 @@ offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
-
-[node name="Slot" parent="UI/Theme/GridContainer" unique_id=825221601 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-item = SubResource("Resource_nffyk")
-
-[node name="Slot2" parent="UI/Theme/GridContainer" unique_id=338480015 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot3" parent="UI/Theme/GridContainer" unique_id=1092225000 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot4" parent="UI/Theme/GridContainer" unique_id=527094852 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot5" parent="UI/Theme/GridContainer" unique_id=461114632 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot6" parent="UI/Theme/GridContainer" unique_id=3131875 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot7" parent="UI/Theme/GridContainer" unique_id=1648373615 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot8" parent="UI/Theme/GridContainer" unique_id=1658253641 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot9" parent="UI/Theme/GridContainer" unique_id=877464485 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot10" parent="UI/Theme/GridContainer" unique_id=1720278646 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot11" parent="UI/Theme/GridContainer" unique_id=727951310 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
-
-[node name="Slot12" parent="UI/Theme/GridContainer" unique_id=916614535 instance=ExtResource("1_lfv3a")]
-layout_mode = 2
 
 [node name="Hotbar" type="HBoxContainer" parent="UI/Theme" unique_id=435187485]
 z_index = -1

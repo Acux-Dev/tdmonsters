@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vu5ix0dlnkqh" path="res://Scenes/Inventory/slot.gd" id="1_yxolh"]
 
-[node name="Slot" type="Button" unique_id=55461003 node_paths=PackedStringArray("icon_texture", "label", "animation_player")]
+[node name="Slot" type="Button" unique_id=55461003 node_paths=PackedStringArray("icon_texture", "label")]
 custom_minimum_size = Vector2(30, 30)
 offset_right = 30.0
 offset_bottom = 30.0
@@ -10,7 +10,6 @@ offset_transform_enabled = true
 script = ExtResource("1_yxolh")
 icon_texture = NodePath("Icon")
 label = NodePath("Label")
-animation_player = NodePath("")
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1936554502]
 custom_minimum_size = Vector2(20, 20)

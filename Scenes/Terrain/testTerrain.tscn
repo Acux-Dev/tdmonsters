@@ -7,10 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cgl0mr63t0i44" path="res://Scenes/Assets/Base/Base.tscn" id="5_niw0r"]
 [ext_resource type="PackedScene" uid="uid://nms46oxx35u" path="res://Scenes/Assets/HealthBar/HealthBar.tscn" id="6_kormt"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp7fv"]
-albedo_texture = ExtResource("1_lyhw4")
-uv1_triplanar = true
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_thmk7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +19,10 @@ background_mode = 2
 sky = SubResource("Sky_kormt")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp7fv"]
+albedo_texture = ExtResource("1_lyhw4")
+uv1_triplanar = true
 
 [sub_resource type="Curve3D" id="Curve3D_dh756"]
 _data = {
@@ -119,6 +119,15 @@ tower_container = NodePath("TowerContainer")
 enemy_spawn_timer = NodePath("EnemySpawnTimer")
 enemy_path = NodePath("EnemyPath")
 
+[node name="env" type="Node3D" parent="." unique_id=513190225]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=255640233]
+environment = SubResource("Environment_6l800")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=997820590]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
 [node name="stage" type="Node3D" parent="." unique_id=1818825287]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="stage" unique_id=1742397355]
@@ -141,15 +150,6 @@ use_collision = true
 collision_mask = 0
 size = Vector3(5, 1, 5)
 material = SubResource("StandardMaterial3D_hp7fv")
-
-[node name="env" type="Node3D" parent="." unique_id=513190225]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=255640233]
-environment = SubResource("Environment_6l800")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=997820590]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1737170074 instance=ExtResource("2_pc7tu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1)
