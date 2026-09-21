@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c23f31dgo20ye" path="res://Scenes/Terrain/game_scene.gd" id="1_xr38a"]
 [ext_resource type="PackedScene" uid="uid://du7my4ggbjj2" path="res://Scenes/Player/Player.tscn" id="2_pc7tu"]
 [ext_resource type="PackedScene" uid="uid://bqrowwsxgxik3" path="res://Scenes/Towers/SimpleTower/simple_tower.tscn" id="4_tempu"]
-[ext_resource type="PackedScene" uid="uid://cgl0mr63t0i44" path="res://Scenes/Assets/Base/Base.tscn" id="5_niw0r"]
-[ext_resource type="PackedScene" uid="uid://nms46oxx35u" path="res://Scenes/Assets/HealthBar/HealthBar.tscn" id="6_kormt"]
+[ext_resource type="PackedScene" uid="uid://cgl0mr63t0i44" path="res://assets/Base/Base.tscn" id="5_niw0r"]
+[ext_resource type="PackedScene" uid="uid://nms46oxx35u" path="res://assets/HealthBar/HealthBar.tscn" id="6_kormt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_thmk7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

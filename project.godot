@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Scripts/Autoload/GameManager.gd"
-SignalBus="*res://Scripts/Autoload/SignalBus.gd"
+GameManager="*res://src/core/autoload/GameManager.gd"
+SignalBus="*res://src/core/autoload/SignalBus.gd"
 Server="*res://Scenes/Singletons/Server.gd"
 Inventory="*uid://e03uggwbvjox"
 
@@ -38,7 +38,7 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 folder_colors={
 "res://Materials/": "yellow",
 "res://Scenes/": "red",
-"res://Scripts/": "green"
+"res://src/": "blue"
 }
 
 [gui]

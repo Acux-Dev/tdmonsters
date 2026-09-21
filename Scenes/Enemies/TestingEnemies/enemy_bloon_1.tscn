@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ceabpw0hakhua"]
 
 [ext_resource type="Script" uid="uid://bi5edh4hmjhlt" path="res://Scenes/Enemies/TestingEnemies/bloon_1.gd" id="1_uw4s1"]
-[ext_resource type="PackedScene" uid="uid://di86rq2tpirx4" path="res://Scenes/Assets/EnemyInfo/enemy_info.tscn" id="2_4k7x6"]
-[ext_resource type="Script" uid="uid://buo7563m8g8ju" path="res://Scripts/Resources/enemy_path_base.gd" id="2_wxpec"]
+[ext_resource type="PackedScene" uid="uid://di86rq2tpirx4" path="res://assets/EnemyInfo/enemy_info.tscn" id="2_4k7x6"]
+[ext_resource type="Script" uid="uid://buo7563m8g8ju" path="res://src/resources/enemy_path/enemy_path_base.gd" id="2_wxpec"]
 
 [sub_resource type="Resource" id="Resource_wxpec"]
 resource_local_to_scene = true

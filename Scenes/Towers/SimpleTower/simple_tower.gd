@@ -1,7 +1,7 @@
 @tool
 extends StaticBody3D
 
-var bullet = preload("res://Scenes/Assets/Bullet/bullet.tscn")
+var bullet = preload("res://assets/Bullet/bullet.tscn")
 var bullet_damage = 5
 var current_targets = []
 var current_target

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bu2jrw8uho4er"]
+
+[ext_resource type="Script" uid="uid://vu5ix0dlnkqh" path="res://src/ui/inventory/slot/slot.gd" id="1_yxolh"]
+
+[node name="Slot" type="Button" unique_id=55461003 node_paths=PackedStringArray("icon_texture", "label")]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 30.0
+offset_bottom = 30.0
+offset_transform_enabled = true
+script = ExtResource("1_yxolh")
+icon_texture = NodePath("Icon")
+label = NodePath("Label")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1936554502]
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="." unique_id=55652507]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 4
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
