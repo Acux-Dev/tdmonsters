@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0f3cdy3dng1c"
-path="res://.godot/imported/block.blend-fba51114a40f07d8b4aa675cb6ded5d4.scn"
+uid="uid://0na6sllp5wd5"
+path="res://.godot/imported/gun_practice.blend-2383e4fda2e690c1b2204903a167ae7a.scn"
 
 [deps]
 
-source_file="res://materials/terrain/block.blend"
-dest_files=["res://.godot/imported/block.blend-fba51114a40f07d8b4aa675cb6ded5d4.scn"]
+source_file="res://assets/game/Bullet/gun_practice.blend"
+dest_files=["res://.godot/imported/gun_practice.blend-2383e4fda2e690c1b2204903a167ae7a.scn"]
 
 [params]
 

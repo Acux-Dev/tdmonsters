@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0f3cdy3dng1c"
-path="res://.godot/imported/block.blend-fba51114a40f07d8b4aa675cb6ded5d4.scn"
+uid="uid://bgbdtryifcvrs"
+path="res://.godot/imported/tower.blend-30e5d25dbcbf4c83422c9a4703e3965e.scn"
 
 [deps]
 
-source_file="res://materials/terrain/block.blend"
-dest_files=["res://.godot/imported/block.blend-fba51114a40f07d8b4aa675cb6ded5d4.scn"]
+source_file="res://assets/game/towers/simple_tower/tower.blend"
+dest_files=["res://.godot/imported/tower.blend-30e5d25dbcbf4c83422c9a4703e3965e.scn"]
 
 [params]
 

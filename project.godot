@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://src/core/autoload/GameManager.gd"
 SignalBus="*res://src/core/autoload/SignalBus.gd"
-Server="*res://Scenes/Singletons/Server.gd"
+Server="*res://src/core/singletons/Server.gd"
 Inventory="*uid://e03uggwbvjox"
 
 [dotnet]
@@ -36,9 +36,13 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Materials/": "yellow",
-"res://Scenes/": "red",
-"res://src/": "blue"
+"res://assets/": "red",
+"res://materials/": "yellow",
+"res://src/": "blue",
+"res://src/debug/": "yellow",
+"res://src/gameplay/test/": "orange",
+"res://src/levels/test_map/": "orange",
+"res://src/ui/menus/test_menu/": "orange"
 }
 
 [gui]

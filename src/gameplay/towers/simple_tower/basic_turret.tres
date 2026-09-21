@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://f5ee7cnrkbj5"]
+
+[ext_resource type="Script" uid="uid://bgw8urdwx5sqw" path="res://src/resources/items/ItemDetail.gd" id="1_7ut2c"]
+[ext_resource type="Texture2D" uid="uid://bqvdf3iaamn1c" path="res://assets/game/Tests/basic_turret_logo.png" id="2_c2qao"]
+[ext_resource type="Script" uid="uid://cbymlsmsapqxi" path="res://src/resources/items/Item.gd" id="3_3j4ij"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_3j4ij")
+title = "Basic Turret"
+icon = ExtResource("2_c2qao")
+metadata/_custom_type_script = "uid://cbymlsmsapqxi"
