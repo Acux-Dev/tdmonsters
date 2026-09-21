@@ -62,9 +62,10 @@ shader_parameter/blur = 0.0
 shader_parameter/darken_factor = 0.5
 shader_parameter/patron_inside = false
 
-[node name="simple_tower" type="StaticBody3D" unique_id=2147099403]
+[node name="simple_tower" type="StaticBody3D" unique_id=2147099403 node_paths=PackedStringArray("tower_meshes")]
 collision_layer = 0
 script = ExtResource("1_nf56o")
+tower_meshes = [NodePath("simple_tower_v2_mesh")]
 
 [node name="simple_tower_v2_mesh" parent="." unique_id=1654213817 instance=ExtResource("2_28xk3")]
 

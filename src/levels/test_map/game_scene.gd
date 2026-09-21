@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var Enemy = preload("res://Scenes/Enemies/TestingEnemies/enemy_bloon_1.tscn")
+@onready var Enemy = preload("res://src/gameplay/enemies/path_enemies/TestingEnemies/enemy_bloon_1.tscn")
 @export var tower_container: Node3D
 @export var enemy_spawn_timer: Timer
 @export var enemy_path: Path3D

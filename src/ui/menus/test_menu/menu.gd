@@ -15,7 +15,7 @@ func _ready():
 	
 
 func _on_singleplayer_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Terrain/testTerrain.tscn")
+	get_tree().change_scene_to_file("res://src/levels/test_map/testTerrain.tscn")
 
 
 func _on_multiplayer_button_pressed():

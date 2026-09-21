@@ -1,7 +1,7 @@
 extends Camera3D
 
-var marker = preload("res://Scenes/test/marker.tscn")
-var tower = preload("res://Scenes/Towers/SimpleTower/simple_tower.tscn")
+var marker = preload("res://src/gameplay/test/marker/marker.tscn")
+var tower = preload("res://src/gameplay/towers/simple_tower/simple_tower.tscn")
 
 var camera_distance := 0
 

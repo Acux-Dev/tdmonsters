@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bjpuuhmu15s5q"]
 
-[ext_resource type="Script" uid="uid://b1nxuopuvetsa" path="res://src/gameplay/towers/simple_tower/simple_tower_mesh.gd" id="1_g0iee"]
+[ext_resource type="Script" uid="uid://b1nxuopuvetsa" path="res://src/gameplay/towers/simple_tower/simple_tower_mesh.gd" id="1_upek1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndnqk"]
 
@@ -71,7 +71,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8rq3m")
 
 [node name="simple_tower_v2_mesh" type="Node3D" unique_id=190787656 node_paths=PackedStringArray("turn_at_items", "look_at_items")]
-script = ExtResource("1_g0iee")
+script = ExtResource("1_upek1")
 turn_at_items = [NodePath(".")]
 look_at_items = [NodePath("Pivot")]
 

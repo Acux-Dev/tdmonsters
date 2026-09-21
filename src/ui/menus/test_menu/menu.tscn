@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ep3cpwyc0rd4"]
 
-[ext_resource type="Script" uid="uid://c6gihfs6uv60c" path="res://src/ui/menus/test_menu/menu.gd" id="1_cqskg"]
+[ext_resource type="Script" uid="uid://c6gihfs6uv60c" path="res://src/ui/menus/test_menu/menu.gd" id="1_obhki"]
 
 [node name="Menu" type="Control" unique_id=1277220008]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cqskg")
+script = ExtResource("1_obhki")
 
 [node name="MainOptions" type="HBoxContainer" parent="." unique_id=569760816]
 layout_mode = 1
